@@ -2,7 +2,7 @@ syntax: glob
 .DS_Store
 build
 dist
-.obj
+*.obj
 funclist
 private
-.pyc
+*.pyc
