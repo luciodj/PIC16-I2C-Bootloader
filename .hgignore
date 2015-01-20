@@ -1,2 +1,8 @@
 syntax: glob
 .DS_Store
+build
+dist
+.obj
+funclist
+private
+.pyc

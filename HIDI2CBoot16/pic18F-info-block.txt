@@ -1,0 +1,26 @@
+# pic18FJ info block
+
+# Supported MCU families/types.
+dMcuType = { "PIC16" : 1, 'PIC18':2, 'PIC18FJ':3, 'PIC24':4, 'dsPIC':10, 'PIC32': 20}
+
+dBIF = { 
+        0: ("ALIGN", skip_align),
+        1: ('MCUTYPE', getMCUtype),   # MCU type/family (byte)
+        2: ('MCUID',   getMCUid  ),   # MCU ID number ()
+        3: ('ERASEBLOCK', getERASEB), # MCU flash erase block size (int)
+        4: ('WRITEBLOCK', getWRITEB), # MCU flash write block size (int)
+        5: ('BOOTREV',    getBOOTR),  # Bootloader revision (int)
+        6: ('BOOTSTART',  getBOOTS),  # Bootloader start address (long)
+        7: ('DEVDSC',     getDEVDSC), # Device descriptor (string[20])
+        8: ('MCUSIZE',    getMCUSIZE) # MCU flash size (long)
+        }
+
+
+[45, : Length of block
+ 1, 3, : type 18j 
+ 8, 248, 255, 1, 0, : Mcu Size 128K-8 bytes
+ 3, 0, 4, : Erase block   1024
+ 4, 64, 0,: Write block   64
+ 5, 0, 19, : boot revision 19,0
+ 6, 0, 228, 1, 0, 
+ 7, 99, 108, 105, 99, 107, 101, 114, 32, 50, 32, 102, 111, 114, 32, 80, 73, 67, 49, 56, 70, 74, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
